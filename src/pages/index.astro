@@ -71,7 +71,7 @@ const frames = frameFolders.map((folder) =>
 				MENU
 			</button>
 			<a class="site-logo" href="/" aria-label="Marlowe home">
-				<img src="/Marlowe_logo-dark.svg" alt="MARLOWE" />
+				<span class="site-logo__mark" aria-hidden="true"></span>
 			</a>
 			<a class="site-link site-link--right" href="mailto:book@marlowe.co.nz">BOOK <span class="text-serif">TABLE</span></a>
 		</header>
@@ -273,6 +273,11 @@ const frames = frameFolders.map((folder) =>
 		z-index: 50;
 	}
 
+	body[data-menu-open="true"] .site-header,
+	body[data-menu-open="true"] .site-footer {
+		color: #665723;
+	}
+
 	.site-footer {
 		bottom: 0;
 		align-items: end;
@@ -294,10 +299,13 @@ const frames = frameFolders.map((folder) =>
 		line-height: 0;
 	}
 
-	.site-logo img {
+	.site-logo__mark {
 		display: block;
 		width: 100%;
-		height: auto;
+		aspect-ratio: 896 / 315.25;
+		background: currentColor;
+		mask: url("/Marlowe_logo-dark.svg") center / contain no-repeat;
+		-webkit-mask: url("/Marlowe_logo-dark.svg") center / contain no-repeat;
 	}
 
 	.text-serif {
@@ -697,7 +705,7 @@ const frames = frameFolders.map((folder) =>
 		width: min(92vw, 920px);
 		max-height: calc(100svh - clamp(164px, 15vw, 246px));
 		line-height: 0;
-		//box-shadow: 0 28px 80px rgba(49, 24, 17, 0.32);
+		/* box-shadow: 0 28px 80px rgba(49, 24, 17, 0.32); */
 		transform: translate3d(0, 18px, 0) rotate(-0.4deg) scale(0.96);
 		opacity: 0;
 		transition:
